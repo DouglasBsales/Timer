@@ -10,7 +10,7 @@ document.getElementById("counter").innerText = `${twoDigits(hours)}:${twoDigits(
 )}:00`;
 
 function start() {
-  interval = setInterval(counting, 100);
+  interval = setInterval(counting, 1000);
 }
 
 function pause() {

@@ -1,16 +1,16 @@
 let hours = 0;
 let minutes = parseInt(document.getElementById("contadorTempo").value);
-let seconds = 60;
+let seconds = 0;
 let interval;
 const backdropModal = document.getElementById("modalBackdrop");
+const numbersCount = document.getElementById("counter")
 
 document.getElementById("counter").innerText = `${twoDigits(hours)}:${twoDigits(
   minutes
 )}:00`;
 
 function start() {
-  interval = setInterval(counting, 1000);
-  minutes = parseInt(document.getElementById("contadorTempo").value);
+  interval = setInterval(counting, 100);
 }
 
 function pause() {
@@ -24,9 +24,7 @@ function stop() {
   minutes = parseInt(document.getElementById("contadorTempo").value);
   seconds = 0;
 
-  document.getElementById("counter").innerText = `${twoDigits(
-    hours
-  )}:${twoDigits(minutes)}:${twoDigits(seconds)}`;
+  numbersCount.innerText = `${twoDigits(hours)}:${twoDigits(minutes)}:${twoDigits(seconds)}`;
 }
 
 function counting() {
@@ -45,9 +43,7 @@ function counting() {
       }
     }
 
-    document.getElementById("counter").innerText = `${twoDigits(
-      hours
-    )}:${twoDigits(minutes)}:${twoDigits(seconds)}`;
+    numbersCount.innerText = `${twoDigits(hours)}:${twoDigits(minutes)}:${twoDigits(seconds)}`;
   }
 }
 
@@ -70,7 +66,5 @@ function closeModal() {
   divModal.style.visibility = "hidden";
   backdropModal.style.display = "none"
   minutes = parseInt(document.getElementById("contadorTempo").value);
-  document.getElementById("counter").innerText = `${twoDigits(
-    hours
-  )}:${twoDigits(minutes)}:00`;
+  numbersCount.innerText = `${twoDigits(hours)}:${twoDigits(minutes)}:00`;
 }

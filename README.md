@@ -14,3 +14,4 @@ O usuário pode escolher o tempo que ele quer que seja incrementado utilizando u
 - JAVASCIPT
 
 ## 📁 Acesso ao projeto
+# https://douglasbsales.github.io/Timer/

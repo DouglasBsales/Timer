@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 
 * {
@@ -37,7 +37,6 @@ body {
   margin: 1rem 0;
 }
 
-
 .timer #start {
   background: #58bc5d;
 }
@@ -62,5 +61,4 @@ a {
 
 a:hover {
   text-decoration: underline;
-};
-
+}

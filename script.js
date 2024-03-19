@@ -5,9 +5,7 @@ let interval;
 const backdropModal = document.getElementById("modalBackdrop");
 const numbersCount = document.getElementById("counter")
 
-document.getElementById("counter").innerText = `${twoDigits(hours)}:${twoDigits(
-  minutes
-)}:00`;
+numbersCount.innerText = `${twoDigits(hours)}:${twoDigits(minutes)}:00`;
 
 function start() {
   interval = setInterval(counting, 1000);
@@ -20,40 +18,52 @@ function pause() {
 function stop() {
   clearInterval(interval);
 
-  hours = 0;
-  minutes = parseInt(document.getElementById("contadorTempo").value);
-  seconds = 0;
+  if( hours > 0){
+    hours += Math.floor (minutes / 60);
+    minutes = minutes % 60
+    seconds = 60;
+  } else{
+    minutes =  parseInt(document.getElementById("contadorTempo").value);
+    seconds = 0;
+  }
 
-  numbersCount.innerText = `${twoDigits(hours)}:${twoDigits(minutes)}:${twoDigits(seconds)}`;
+  numbersCount.innerText = `${twoDigits(hours)}:${twoDigits(minutes)}:00`;
 }
 
 function counting() {
   if (hours === 0 && minutes === 0 && seconds === 0) {
-    stop();
+      stop();
   } else {
     seconds--;
+  
 
-    if (seconds < 0) {
-      seconds = 59;
-      minutes--;
-
-      if (minutes < 0) {
-        minutes = 0;
-        hours--;
-      }
+    if(seconds < 0) {
+        seconds = 59;
+        minutes--;
     }
+    
+    if(minutes >= 60) {
+        hours += Math.floor(minutes / 60);
+        minutes = minutes % 60; 
+    };
+    
+    if(minutes < 0) {
+        minutes = 59;
+        hours--;
+      };
 
     numbersCount.innerText = `${twoDigits(hours)}:${twoDigits(minutes)}:${twoDigits(seconds)}`;
   }
 }
 
 function twoDigits(digit) {
-  if (digit < 10) {
+  if(digit < 10) {
     return "0" + digit;
   } else {
     return digit;
   }
-}
+};
+
 
 let divModal = document.getElementById("divModal");
 
@@ -64,7 +74,13 @@ function openModal() {
 
 function closeModal() {
   divModal.style.visibility = "hidden";
-  backdropModal.style.display = "none"
+  backdropModal.style.display = "none";
+
+  clearInterval(interval);
+
+  hours = 0;
   minutes = parseInt(document.getElementById("contadorTempo").value);
+  seconds = 0;
+
   numbersCount.innerText = `${twoDigits(hours)}:${twoDigits(minutes)}:00`;
 }

@@ -104,7 +104,7 @@ function verificarCampo(){
     iconCloseModal.disabled = false;
   }
 
-  buttonStart.removeAttribute('disabled', '')
+  buttonStart.removeAttribute('disabled', '');
 }
 
 divInputMinutes.addEventListener('keyup', verificarCampo)

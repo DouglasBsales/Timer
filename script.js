@@ -17,7 +17,7 @@ function start() {
 
 function pause() {
   clearInterval(interval);
-  buttonStart.removeAttribute('disabled', '')
+  buttonStart.removeAttribute('disabled', '');
 }
 
 function stop() {
@@ -104,7 +104,7 @@ function verificarCampo(){
     iconCloseModal.disabled = false;
   }
 
-  console.log(minutes)
+  buttonStart.removeAttribute('disabled', '')
 }
 
 divInputMinutes.addEventListener('keyup', verificarCampo)

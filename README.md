@@ -1,7 +1,7 @@
   
 # TIMER 
 
-Um cronômetro de contagem regressiva 
+Cronômetro de contagem regressiva 
 
 ## 🔨 Funcionalidades do projeto
 
